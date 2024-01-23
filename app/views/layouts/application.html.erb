@@ -10,12 +10,12 @@
     <%= javascript_importmap_tags %>
   </head>
   <body>
-    <main class="container flex px-5 mx-auto mt-28">
+    <main class="container flex flex-col mx-auto">
       <div>
         <p class="notice"><%= notice %></p>
         <p class="alert"><%= alert %></p>
-      </div>
-      <%= yield %>
+      <div>
+        <%= yield %>
     </main>
   </body>
 </html>

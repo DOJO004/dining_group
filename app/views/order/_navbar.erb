@@ -1,0 +1,13 @@
+<div class="fixed bottom-0 grid w-full grid-cols-5 gap-2 p-1 border-b-2">
+  <div class="mx-2">HOME</div>
+  <div class="mx-2">發起訂餐</div>
+  <div class="mx-2">查看紀錄</div>
+  <div class="mx-2">個人資料</div>
+  <div class="mx-2">
+    <% if current_user %>
+      <%= link_to "登出", destroy_user_session_path, data:{turbo_method: :delete} %>
+    <% else %>
+      <%= link_to "登入", new_user_session_path %>
+    <% end %>
+  </div>
+</div>
