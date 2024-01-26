@@ -1,0 +1,17 @@
+<div class="fixed bottom-0 grid w-full grid-cols-5 gap-2 p-1 text-center border">
+  <div class="mx-2 whitespace-nowrap">
+    <%= link_to "首頁", root_path%>
+  </div>
+  <div class="mx-2 whitespace-nowrap">
+    <%= link_to "發起訂餐", new_order_path%>
+  </div>
+  <div class="mx-2 whitespace-nowrap">查看紀錄</div>
+  <div class="mx-2 whitespace-nowrap">個人資料</div>
+  <div class="mx-2 whitespace-nowrap">
+    <% if current_user %>
+      <%= link_to "登出", destroy_user_session_path, data:{turbo_method: :delete} %>
+    <% else %>
+      <%= link_to "登入", new_user_session_path %>
+    <% end %>
+  </div>
+</div>

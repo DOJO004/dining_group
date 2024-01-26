@@ -1,0 +1,18 @@
+<p> ordre index page</p>
+<p class="my-2 text-center border-b-2">發起的訂單</p>
+<% @orders.each do |order|%>
+  <%= link_to order_path(order.id) do%>
+    <div class="p-2 my-2 border rounded-md">
+      <%= order.title%>
+      <p>發起人：
+        <%= order.user.name%>
+      </p>
+      <% if current_user && current_user.id === order.user_id%>
+        <div>
+          <%= link_to "修改", edit_order_path(order.id)%>
+          <%= link_to "刪除", order_path(order.id), data:{ turbo_method: :delete, turbo_confirm: "確定刪除嗎?"}%>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+<% end %>

@@ -14,8 +14,13 @@
       <div>
         <p class="notice"><%= notice %></p>
         <p class="alert"><%= alert %></p>
-      <div>
+      </div>
+      <div class="p-2">
         <%= yield %>
+      </div>
+      <div>
+        <%= render "layouts/navbar"%>
+      </div>
     </main>
   </body>
 </html>

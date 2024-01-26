@@ -1,0 +1,11 @@
+<p>new order path</p>
+<%= link_to "＜", :back%>
+<%= form_with(model:@order, url:order_index_path, data:{ turbo: false}) do |f| %>
+  <%= f.label :title%>
+  <%= f.text_field :title, class:"input"%>
+  <%= f.label :menu, "上傳菜單"%>
+  <%= f.file_field :menu, class:" hidden"%>
+  <div class="flex justify-end">
+    <%= f.submit "送出", class:"button"%>
+  </div>
+<% end %>
