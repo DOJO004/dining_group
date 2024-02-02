@@ -6,6 +6,7 @@ class OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
+    @details = OrderDetail.where(order_id: params[:id])
   end
 
   def new

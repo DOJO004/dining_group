@@ -1,6 +1,6 @@
 <p>new order path</p>
 <%= link_to "＜", :back%>
-<%= form_with(model:@order, url:order_index_path, data:{ turbo: false}) do |f| %>
+<%= form_with(model:@order, url:orders_path, data:{ turbo: false}) do |f| %>
   <%= f.label :title%>
   <%= f.text_field :title, class:"input"%>
   <%= f.label :menu, "上傳菜單"%>

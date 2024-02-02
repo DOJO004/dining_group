@@ -1,0 +1,11 @@
+<%= form_with(model: @details, url: order_detail_index_path(order_id: params[:id]), data:{ turbo: false}) do |f|%>
+  <%= f.label :food_name%>
+  <%= f.text_field :food_name, class:"input", name:"order_detail[food_name]"%>
+  <%= f.label :price%>
+  <%= f.number_field :price, class:"input", name:"order_detail[price]"%>
+  <%= f.label :amount%>
+  <%= f.number_field :amount, class:"input", name:"order_detail[amount]"%>
+  <div class="flex justify-end ">
+    <%= f.submit "完成", class:"button"%>
+  </div>
+<% end %>
