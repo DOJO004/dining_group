@@ -1,0 +1,33 @@
+<% if @details%>
+  <div class="my-2 overflow-auto border rounded-md ">
+    <table class="w-full text-center">
+      <thead>
+        <tr>
+          <th class="p-1 text-xl whitespace-nowrap" >訂餐人</th>
+          <th class="p-1 text-xl whitespace-nowrap" >名稱</th>
+          <th class="p-1 text-xl whitespace-nowrap" >單價</th>
+          <th class="p-1 text-xl whitespace-nowrap" >數量</th>
+          <th class="p-1 text-xl whitespace-nowrap" >小計</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @details.each do |detail|%>
+          <tr>
+            <td class=" whitespace-nowrap"><%= User.find_by(id:detail.user_id).name%> </td>
+            <td class=" whitespace-nowrap"><%= detail.food_name%></td>
+            <td class=" whitespace-nowrap"><%= detail.price%></td>
+            <td class=" whitespace-nowrap"><%= detail.amount%></td>
+            <td class=" whitespace-nowrap"><%= detail.price * detail.amount%> </td>
+            <% if current_user.id === detail.user_id %>
+              <td class=" whitespace-nowrap"><%= link_to "刪除", order_detail_path(order_id: params[:id], id: detail.id), data:{ turbo_method: :delete, turbo_confirm: "確定刪除嗎?"}%> </td>
+            <% end %>
+          </tr>
+        <% end %>
+        <tr>
+          <td colspan = 4  class=" whitespace-nowrap"></td>
+          <td class=" whitespace-nowrap">總額： <%= @total_price %></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+<% end %>
